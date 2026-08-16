@@ -23,14 +23,14 @@ Both projects use a custom VPC for network isolation and an Application Load Bal
 **Stack:** S3 · VPC · EC2 · Application Load Balancer
 **GitHub:** [/static-website](./static-website)
 
-Deployed a highly available static website using a 3-tier design: an Application Load Balancer as the presentation tier, EC2 instances across multiple Availability Zones as the application tier, and S3 as the data tier for static asset storage.
+Deployed a highly available static website using a 2-tier design: an Application Load Balancer as the presentation tier, and EC2 instances across multiple Availability Zones as the application tier, using S3 to store and serve static assets.
 
 **What it demonstrates**
-- 3-tier separation of concerns even without a database
+- 2-tier separation of presentation and application concerns.
 - Custom VPC design (subnets, route tables, internet gateway)
 - Load balancer target groups & health checks
 - Multi-AZ EC2 deployment for fault tolerance
-- S3 as the data tier for static asset hosting
+- S3 for statis asset storage and delivery
 
 **Outcome:** Achieved 99.9%+ uptime by distributing traffic across multiple Availability Zones, removing the single point of failure present in a single-server hosting setup.
 
