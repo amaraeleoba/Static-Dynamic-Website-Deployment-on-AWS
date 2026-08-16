@@ -2,7 +2,7 @@
 
 [← Back to profile](https://github.com/amaraeleoba)
 
-A two-part project demonstrating how to design, deploy, and secure a **3-tier architecture** on AWS — once for a static website and once for a dynamic website. Both projects follow the same presentation / application / data tier pattern, with the data tier changing from S3 (static assets) to RDS (relational database) as the application gains server-side logic.
+A two-part project demonstrating how to design, deploy, and secure web architectures on AWS, a 2-tier static website and a 3-tier dynamic website. The dynamic project builds on the static one by adding a dedicated data tier (RDS) once the application needs to persist and query data.
 
 ---
 
@@ -13,7 +13,7 @@ A two-part project demonstrating how to design, deploy, and secure a **3-tier ar
 | **1. Static Website** | Highly available static site, no server-side logic | Presentation (ALB) → Application (EC2) → Data (S3) | [/static-website](./static-website) |
 | **2. Dynamic Website** | 3-tier web app with a persistent database backend | Presentation (ALB) → Application (EC2) → Data (RDS + S3) | [/dynamic-website](./dynamic-website) |
 
-Both projects use a custom VPC for network isolation and an Application Load Balancer as the presentation tier — the dynamic project adds a private-subnet RDS database as its data tier, on top of S3 for static assets.
+Both projects use a custom VPC for network isolation and an Application Load Balancer as the presentation tier. The static site keeps S3 as part of the application tier's asset delivery (no dedicated data tier, since there's no database or server-side data logic). The dynamic site introduces a true data tier RDS in private subnets, once the application needs to persist and query data.
 
 
 ---
